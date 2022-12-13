@@ -1,6 +1,3 @@
-<?php
-$formMessage = "Nahrajte soubor";
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,6 +11,7 @@ $formMessage = "Nahrajte soubor";
 <body>
 <div class="container">
     <?php
+    $formMessage = "Nahrajte soubor";
     if($_FILES) {
         $targetDir = "uploads/";
         $targetFile = $targetDir . basename($_FILES['uploadedName']['name']);
@@ -47,7 +45,7 @@ $formMessage = "Nahrajte soubor";
 //        }
         else {
             if (move_uploaded_file($_FILES['uploadedName']['tmp_name'], $targetFile)) {
-                echo "Soubor " . basename($_FILES['uploadedName']['name']) . " byl ulozen";
+                $formMessage = "Soubor " . basename($_FILES['uploadedName']['name']) . " byl ulozen";
             } else {
                 echo "doslo k chybe uploadu";
             }
